@@ -1,4 +1,4 @@
-# SuriCon
+# SuriSoc
 A Go-lang package for interaction with the suricata command unix socket
 
 ## Installation
