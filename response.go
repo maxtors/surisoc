@@ -10,7 +10,7 @@ type SocketResponse struct {
 
 // ToString converts the response message element to a string
 func (sr *SocketResponse) ToString() (string, error) {
-	bytes, err := json.MarshalIndent(sr.Message, "", "    ")
+	bytes, err := json.MarshalIndent(sr, "", "    ")
 	if err != nil {
 		return "", nil
 	}

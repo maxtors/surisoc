@@ -168,7 +168,7 @@ func (s SuricataSocket) SendMessage(msg *SocketMessage) (*SocketResponse, error)
 // Recive will recive a response from the suricata socket
 func (s *SuricataSocket) recive() (*SocketResponse, error) {
 
-	time.Sleep(time.Millisecond * 100)
+	time.Sleep(time.Millisecond * 10)
 
 	// Read the data from the socket
 	buffer := make([]byte, 8192)
