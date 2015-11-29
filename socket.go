@@ -139,16 +139,17 @@ func (s SuricataSocket) Send(command string, arguments ...string) (*SocketRespon
 	}
 
 	// The container for the message, either with or without arguments
-	message, err := NewSocketMessage(command, arguments...)
+	message := NewSocketMessage(command)
+	err = message.ParseArgumentsList(arguments...)
 	if err != nil {
 		return nil, err
 	}
 
-	return s.send(message)
+	return s.SendMessage(message)
 }
 
-// Send a message to the suricata socket
-func (s SuricataSocket) send(msg *SocketMessage) (*SocketResponse, error) {
+// SendMessage sends a Socket Message to the suricata socket
+func (s SuricataSocket) SendMessage(msg *SocketMessage) (*SocketResponse, error) {
 	// Marshal the socket message to a json []byte
 	bytes, err := json.Marshal(msg)
 	if err != nil {
