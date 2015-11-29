@@ -14,14 +14,18 @@ if err != nil {
 }
 defer session.Close()
 
+// Send the "version" command to get the version of Suricata that is running
 response, err = session.Send("version")
 if err != nil {
     log.Fatalf("Error: %s\n", err.Error())
 }
 
+// Convert the response.Message to a string
 res, err := response.ToString()
 if err != nil {
     log.Fatalf("Error: %s\n", err.Error())
 }
+
+// Print results
 fmt.Println(res)
 ```
