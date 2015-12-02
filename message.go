@@ -2,6 +2,7 @@ package surisoc
 
 import (
 	"fmt"
+	"net/url"
 	"strconv"
 )
 
@@ -28,8 +29,8 @@ func (sm *SocketMessage) ParseArgumentsList(arguments ...string) error {
 	return nil
 }
 
-// ParseArgumentsMap will parse a map of arguments and add to the message
-func (sm *SocketMessage) ParseArgumentsMap(arguments map[string][]string) error {
+// ParseArgumentsURLMap will parse a map of arguments and add to the message
+func (sm *SocketMessage) ParseArgumentsURLMap(arguments url.Values) error {
 	var err error
 	argumentsMap := make(map[string]interface{})
 
